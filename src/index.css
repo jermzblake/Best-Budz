@@ -1,12 +1,58 @@
-body {
+/* Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700;800;900&family=Roboto:wght@300;400;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Sigmar+One&display=swap");
+@import url("http://fonts.googleapis.com/css?family=Monoton&effect=neon");
+/* Global reset and font family set */
+* {
+  font-family: var(--font-roboto);
+  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
 }
 
+/* Variables you can use in any css file 
+throughout the 
+project with: Ex. var(--nameOfVar) */
+
+:root {
+  /* Colors */
+  --main-bg-color: #FAF1B3;
+  --box-color: #e0aaff;
+  --font-color: #101812;
+  --second-font: #727272;
+  --hover-bg: #e0aaff;
+  --btn-color: #0062ff;
+  --red: #fb3640;
+  --yellow: #F4E04D;
+  --orange: #FFBC42;  /* this is your main yellow */
+  --green: #09D77B;
+  --blue: #20a4f3;
+  --purple: #5C4A82;
+  --aqua: #77F9BE;
+  --kgreen: #273C2C;
+  --dark: #101812;
+
+  /* Fonts */
+  /* --font-poppins: "Poppins", sans-serif; */
+  /*400,500,700,800,900 Weights*/
+  --font-poppins: "Poppins", sans-serif;
+
+  /* --font-roboto: "Roboto", sans-serif; */
+  /*300,400 Weights*/
+  --font-roboto: "Roboto", sans-serif;
+
+  /* Shadows and Effects */
+  --border-radius: 8px;
+  --box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.12),
+    0 4px 4px rgba(0, 0, 0, 0.12), 0 8px 8px rgba(0, 0, 0, 0.12),
+    0 16px 16px rgba(0, 0, 0, 0.12);
+}
+
+body {
+  font-family: var(--font-robto);
+  background-color: var(--main-bg-color);
+  /* height: 100vh; */
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
