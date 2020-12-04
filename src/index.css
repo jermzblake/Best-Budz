@@ -57,3 +57,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.selected {
+  font-weight: bold;
+  color: white;
+}
