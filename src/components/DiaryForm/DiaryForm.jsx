@@ -20,6 +20,14 @@ class DiaryForm extends Component {
         }
     }
 
+    handleChange = (e) => {
+        this.props.updateMessage('');
+        this.setState({
+          // Using ES2015 Computed Property Names
+          [e.target.name]: e.target.value
+        });
+    }
+
     addEntry = e => {
         e.preventDefault();
     }
@@ -32,11 +40,11 @@ class DiaryForm extends Component {
                 <form onSubmit={this.addEntry}>
                 <label>
                     <span>STRAIN</span>
-                    <input name='strain'/>
+                    <input name='strain' value={this.state.strain} onChange={this.handleChange} />
                 </label>
                 <label>
                     <span>METHOD</span>
-                    <select name='method'>
+                    <select name='method' onChange={this.handleChange}>
                     <option value="Dried Flower">Dried Flower</option>
                     <option value="Pill">Pill/Capsule</option>
                     <option value="Oil">Oil</option>
@@ -45,8 +53,8 @@ class DiaryForm extends Component {
                     </select>
                 </label>
                 <label>
-                    <span>Positive Effects</span>
-                    <select name='positiveEffects' multiple>
+                    <span>POSITIVE EFFECTS</span>
+                    <select name='positiveEffects' onChange={this.handleChange} multiple>
                     <option value="Euphoria">Euphoria</option>
                     <option value="Body High">Body High</option>
                     <option value="Calm">Calm</option>
@@ -62,8 +70,8 @@ class DiaryForm extends Component {
                     </select>
                 </label>
                 <label>
-                    <span>Negative Effects</span>
-                    <select name='negativeEffects' multiple>
+                    <span>NEGATIVE EFFECTS</span>
+                    <select name='negativeEffects' onChange={this.handleChange}>
                     <option value="Red Eyes">Red Eyes</option>
                     <option value="Dry Mouth">Dry Mouth</option>
                     <option value="Headache">Headache</option>
@@ -73,7 +81,7 @@ class DiaryForm extends Component {
                 </label>
                 <label>
                     <span>FLAVOUR/AROMA</span>
-                    <select name='flavour' multiple>
+                    <select name='flavour' onChange={this.handleChange}>
                     <option value="Fruity">Fruity</option>
                     <option value="Earthy">Earthy</option>
                     <option value="Woody">Woody</option>
@@ -90,7 +98,7 @@ class DiaryForm extends Component {
                 </label>
                 <label>
                     <span>RATING</span>
-                    <select name='rating'>
+                    <select name='rating' onChange={this.handleChange}>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -105,11 +113,11 @@ class DiaryForm extends Component {
                 </label>
                 <label>
                     <span>Onset Time</span>
-                    <input name='onsetTime' placeholder='How long until you felt effects (in minutes)'/>
+                    <input name='onsetTime'  value={this.state.onsetTime} placeholder='How long until you felt effects (in minutes)' onChange={this.handleChange} />
                 </label>
                 <label>
                     <span>COMMENTS</span>
-                    <textarea name='comments' placeholder='How you feeling champ?'/>
+                    <textarea name='comments' value={this.state.comments} placeholder='How you feeling champ?' onChange={this.handleChange}/>
                 </label>
                 <button onClick={this.addEntry}>ADD ENTRY</button>&nbsp;&nbsp;
                 <Link to='/'>Cancel</Link>
