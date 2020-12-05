@@ -9,7 +9,7 @@ class DiaryForm extends Component {
     constructor() {
         super();
         this.state= {
-            method: [],
+            method: '',
             positiveEffects: [],
             negativeEffects: [],
             flavour: [],
@@ -46,7 +46,7 @@ class DiaryForm extends Component {
                 </label>
                 <label>
                     <span>Positive Effects</span>
-                    <select name='positiveEffects'>
+                    <select name='positiveEffects' multiple>
                     <option value="Euphoria">Euphoria</option>
                     <option value="Body High">Body High</option>
                     <option value="Calm">Calm</option>
@@ -63,7 +63,7 @@ class DiaryForm extends Component {
                 </label>
                 <label>
                     <span>Negative Effects</span>
-                    <select name='negativeEffects'>
+                    <select name='negativeEffects' multiple>
                     <option value="Red Eyes">Red Eyes</option>
                     <option value="Dry Mouth">Dry Mouth</option>
                     <option value="Headache">Headache</option>
@@ -73,7 +73,7 @@ class DiaryForm extends Component {
                 </label>
                 <label>
                     <span>FLAVOUR/AROMA</span>
-                    <select name='flavour'>
+                    <select name='flavour' multiple>
                     <option value="Fruity">Fruity</option>
                     <option value="Earthy">Earthy</option>
                     <option value="Woody">Woody</option>
