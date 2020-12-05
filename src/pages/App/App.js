@@ -1,21 +1,59 @@
 import React, { Component } from 'react';
 import './App.css';
 //import React Routes
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 // import Pages
 import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
+//import Components
+import NavBar from '../../components/NavBar/NavBar';
+// Utilities
+import userService from '../../utils/userService'
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state= {
+      user: userService.getUser(),
+    }
+  }
+
+  handleLogout = () => {
+    userService.logout();
+    this.setState({ user: null });
+  }
+
+  handleSignupOrLogin = () => {
+    this.setState({user: userService.getUser()});
+  }
+
 
   render(){
     return (
       <div className="App">
         <header className="">
-
+          B E S T &nbsp;&nbsp;&nbsp; B U D Z
         </header>
-        <Route path='/login' component={LoginPage} />
-        <Route path='/signup' component={SignupPage} />
+        <NavBar
+          user={this.state.user}
+          handleLogout={this.handleLogout}
+
+        />
+        <Switch>
+          <Route exact path='/signup' render={({ history }) =>
+            <SignupPage
+              history={history}
+              handleSignup={this.handleSignupOrLogin}
+            />
+          }/>
+          <Route exact path='/login' render={({ history }) =>
+            <LoginPage
+              history={history}
+              handleSignupOrLogin={this.handleSignupOrLogin}
+
+            />
+          }/>
+        </Switch>
       </div>
     );
   }

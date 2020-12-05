@@ -9,6 +9,6 @@
   }
   
   .NavBar-welcome {
-    color: grey;
+    color: var(--kgreen);
   }
   
