@@ -5,10 +5,12 @@ import { Route, Switch } from 'react-router-dom';
 // import Pages
 import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
+import EntryFormPage from '../EntryFormPage/EntryFormPage';
 //import Components
 import NavBar from '../../components/NavBar/NavBar';
 // Utilities
 import userService from '../../utils/userService'
+
 
 class App extends Component {
   constructor() {
@@ -53,6 +55,9 @@ class App extends Component {
 
             />
           }/>
+          <Route exact path='/entry-form' render={(props) => (
+            <EntryFormPage {...props} />
+          )}/>
         </Switch>
       </div>
     );

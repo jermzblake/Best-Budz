@@ -49,7 +49,7 @@ class DiaryForm extends Component {
                     <select name='positiveEffects'>
                     <option value="Euphoria">Euphoria</option>
                     <option value="Body High">Body High</option>
-                    <option value="Calm"></option>
+                    <option value="Calm">Calm</option>
                     <option value="Uplifting">Uplifting</option>
                     <option value="Sociable">Sociable</option>
                     <option value="Energetic">Energetic</option>

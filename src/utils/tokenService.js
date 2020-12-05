@@ -25,6 +25,7 @@ function removeToken() {
   localStorage.removeItem('token');
 }
 
+// eslint-disable-next-line
 export default {
   setToken,
   getToken,

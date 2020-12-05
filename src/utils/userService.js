@@ -41,6 +41,7 @@ function logout() {
   tokenService.removeToken();
 }
 
+// eslint-disable-next-line
 export default {
   signup,
   getUser,
