@@ -17,6 +17,7 @@ class App extends Component {
     super();
     this.state= {
       user: userService.getUser(),
+      diary
     }
   }
 
@@ -28,6 +29,13 @@ class App extends Component {
   handleSignupOrLogin = () => {
     this.setState({user: userService.getUser()});
   }
+
+  /*--- Lifecycle Methods ---*/
+
+  // async componentDidMount() {
+  //   const diary = await diaryService.index();
+  //   this.setState({ diary });
+  // }
 
 
   render(){

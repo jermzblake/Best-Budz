@@ -5,7 +5,7 @@ const diariesCtrl = require('../../controllers/diaries');
 /*---------- Protected Routes ----------*/
 // Process the token for only the routes below
 router.use(require('../../config/auth'));
-router.post('/', checkAuth, );
+router.post('/', checkAuth, diariesCtrl.newDiary);
 
 /*----- Helper Functions -----*/
 function checkAuth(req, res, next) {
