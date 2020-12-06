@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const diariesCtrl = require('../../controllers/diaries');
 
 /*---------- Protected Routes ----------*/
 // Process the token for only the routes below
