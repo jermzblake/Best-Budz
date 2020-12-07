@@ -26,8 +26,8 @@ class SignupForm extends Component {
           await userService.signup(this.state);
           // Let <App> know a user has signed up!
           this.props.handleSignup();
-          // Initialize the Dank Diary
-          diaryService.createDiary(this.props.user)
+          // Initialize the Dank Diary and set it to App's state
+          diaryService.createDiary(this.props.user).then(diary=> this.props.updateDiary(diary))
           // Successfully signed up - show root page
           this.props.history.push('/');
         } catch (err) {

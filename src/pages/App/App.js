@@ -9,7 +9,8 @@ import EntryFormPage from '../EntryFormPage/EntryFormPage';
 //import Components
 import NavBar from '../../components/NavBar/NavBar';
 // Utilities
-import userService from '../../utils/userService'
+import userService from '../../utils/userService';
+import diaryService from '../../utils/diaryService';
 
 
 class App extends Component {
@@ -17,25 +18,39 @@ class App extends Component {
     super();
     this.state= {
       user: userService.getUser(),
-      // diary
+      diary: null,
     }
   }
 
-  handleLogout = () => {
-    userService.logout();
-    this.setState({ user: null });
-  }
+handleLogout = () => {
+  userService.logout();
+  this.setState({ user: null, diary: null });
+}
 
-  handleSignupOrLogin = () => {
-    this.setState({user: userService.getUser()});
-  }
+handleSignupOrLogin = () => {
+  this.setState({user: userService.getUser()});
+}
+
+loadDiaries = async() => {
+  const diary = await diaryService.index();
+  this.setState({ diary });
+}
+
+updateDiary = (diary) => {
+  this.setState({ diary })
+}
 
   /*--- Lifecycle Methods ---*/
 
-  // async componentDidMount() {
-  //   const diary = await diaryService.index();
-  //   this.setState({ diary });
-  // }
+async componentDidMount() {
+    return this.loadDiaries();
+}
+
+componentDidUpdate () {
+  if(!this.state.diary){
+      return this.loadDiaries();
+  }
+}
 
 
   render(){
@@ -55,6 +70,7 @@ class App extends Component {
               history={history}
               handleSignup={this.handleSignupOrLogin}
               user={this.state.user}
+              updateDiary={this.updateDiary}
             />
           }/>
           <Route exact path='/login' render={({ history }) =>

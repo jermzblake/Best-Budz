@@ -1,16 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const diariesCtrl = require('../../controllers/diaries');
+const helpers = require('../../config/helpers')
 
 /*---------- Protected Routes ----------*/
 // Process the token for only the routes below
-router.use(require('../../config/auth'));
-router.post('/', checkAuth, diariesCtrl.newDiary);
-
-/*----- Helper Functions -----*/
-function checkAuth(req, res, next) {
-  if (req.user) return next();
-  return res.status(401).json({msg: 'Not Authorized'});
-} 
+router.get('/', helpers.checkAuth, diariesCtrl.index);
+router.post('/', helpers.checkAuth, diariesCtrl.create);
 
 module.exports = router;
