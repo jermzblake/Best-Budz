@@ -1,5 +1,4 @@
 const Diary = require('../models/diary');
-const User = require('../models/user');
 
 module.exports = {
     create,  //should be create
