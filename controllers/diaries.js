@@ -13,7 +13,7 @@ async function newDiary (req, res) {
         return res.json({err});
         };
     })  
-        const author = await User.findById(req.user.id);
+        const author = await User.findById(req.user._id);
         diary.user.push(author._id);
         diary.save(function(err){
             res.json(diary);

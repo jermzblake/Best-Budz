@@ -17,7 +17,7 @@ class App extends Component {
     super();
     this.state= {
       user: userService.getUser(),
-      diary
+      // diary
     }
   }
 
@@ -54,6 +54,7 @@ class App extends Component {
             <SignupPage
               history={history}
               handleSignup={this.handleSignupOrLogin}
+              user={this.state.user}
             />
           }/>
           <Route exact path='/login' render={({ history }) =>

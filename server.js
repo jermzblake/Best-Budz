@@ -21,7 +21,7 @@ app.use('/api/users', require('./routes/api/users'));
 
 // Mount custom auth middleware to protect routes below it
 app.use(require('./config/auth'));
-// app.use('/api/diaries', require('./routes/api/diaries'));
+app.use('/api/diaries', require('./routes/api/diaries'));
 
 // The following "catch all" route (note the *)is necessary
 // for a SPA's client-side routing to properly work

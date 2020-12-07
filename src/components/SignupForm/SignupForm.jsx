@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import diaryService from '../../utils/diaryService';
 import userService from '../../utils/userService';
 
 class SignupForm extends Component {
@@ -25,6 +26,8 @@ class SignupForm extends Component {
           await userService.signup(this.state);
           // Let <App> know a user has signed up!
           this.props.handleSignup();
+          // Initialize the Dank Diary
+          diaryService.createDiary(this.props.user)
           // Successfully signed up - show root page
           this.props.history.push('/');
         } catch (err) {
