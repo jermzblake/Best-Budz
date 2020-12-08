@@ -13,7 +13,7 @@ export default function Checkbox({
                 {choices.map((choice) => (
                     <label>
                         {choice}: &nbsp;
-                        <input type="checkbox" name={choice} checked={checked} onChange={handleInputChange} />
+                        <input type="checkbox" name={choice} checked={choice} onChange={handleInputChange} />
                     </label>
                 ))}
             </>

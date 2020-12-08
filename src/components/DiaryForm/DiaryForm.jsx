@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import diaryService from '../../utils/diaryService';
-import { positiveEffects } from '../../utils/formHelpers';
+// Form variables/state
+import { positiveEffects, negativeEffects, flavour, method, positiveInitialState,negativeInitialState, flavourInitialState } from '../../utils/formHelpers';
+// Form components
 import Checkbox from '../Checkbox/Checkbox';
+import Select from '../Select/Select';
 
 
 
@@ -11,10 +14,10 @@ class DiaryForm extends Component {
     constructor() {
         super();
         this.state= {
-            method: '',
-            positiveEffects: '',
-            negativeEffects: '',
-            flavour: [],
+            ...positiveInitialState(),
+            ...negativeInitialState(),
+            ...flavourInitialState(),
+            method: 'Dried Flower',
             rating: 5,
             onsetTime: '',
             strain: '',
@@ -48,19 +51,12 @@ class DiaryForm extends Component {
     }
 
     render(){
-        console.log({positiveEffects})
         return (
             <section>
                 <h2>Consumption Entry</h2>
                 <hr />
                 <form onSubmit={this.addEntry}>
-                    {/* <Checkbox 
-                        choices={positiveEffects}
-                        label="Positive Effects"
-                        labelFor="positiveEffects"
-                        checked={false}
-                        handleInputChange={this.handleInputChange}
-                        /> */}
+
                     <label>
                         <span>DATE</span>
                         <input type='datetime-local' name='date' value={this.state.date} onChange={this.handleChange} />
@@ -69,67 +65,38 @@ class DiaryForm extends Component {
                         <span>STRAIN</span>
                         <input name='strain' value={this.state.strain} onChange={this.handleChange} />
                     </label>
-                    <label>
-                        <span>METHOD</span>
-                        <select name='method' onChange={this.handleChange}>
-                        <option value="">Pick One Below</option>
-                        <option value="Dried Flower">Dried Flower</option>
-                        <option value="Pill">Pill/Capsule</option>
-                        <option value="Oil">Oil</option>
-                        <option value="Beverage">Beverage</option>
-                        <option value="Edible">Edible</option>
-                        </select>
-                    </label>
-                    <label>
-                        <span>POSITIVE EFFECTS</span>
-                        <select name='positiveEffects' onChange={this.handleChange} >
-                        <option value="">Pick One Below</option>
-                        <option value="Euphoria">Euphoria</option>
-                        <option value="Body High">Body High</option>
-                        <option value="Calm">Calm</option>
-                        <option value="Uplifting">Uplifting</option>
-                        <option value="Sociable">Sociable</option>
-                        <option value="Energetic">Energetic</option>
-                        <option value="Giggly">Giggly</option>
-                        <option value="Creative">Creative</option>
-                        <option value="Relaxed">Relaxed</option>
-                        <option value="Sleepy">Sleepy</option>
-                        <option value="Clear Headed">Clear Headed</option>
-                        <option value="Invigorating">Invigorating</option>
-                        <option value="None">None</option>
-                        </select>
-                    </label>
-                    <label>
-                        <span>NEGATIVE EFFECTS</span>
-                        <select name='negativeEffects' onChange={this.handleChange} placeholder="---">
-                        <option value="">Pick One Below</option>
-                        <option value="Red Eyes">Red Eyes</option>
-                        <option value="Dry Mouth">Dry Mouth</option>
-                        <option value="Headache">Headache</option>
-                        <option value="Sleeplessness">Sleeplessness</option>
-                        <option value="Anxious">Anxious</option>
-                        <option value="None">None</option>
-                        </select>
-                    </label>
-                    <label>
-                        <span>FLAVOUR/AROMA</span>
-                        <select name='flavour' onChange={this.handleChange}>
-                        <option value="">Pick One Below</option>
-                        <option value="Fruity">Fruity</option>
-                        <option value="Earthy">Earthy</option>
-                        <option value="Woody">Woody</option>
-                        <option value="Spicy">Spicy</option>
-                        <option value="Citrus">Citrus</option>
-                        <option value="Diesel">Diesel</option>
-                        <option value="Skunk">Skunk</option>
-                        <option value="Tonic">Tonic</option>
-                        <option value="Woody">Woody</option>
-                        <option value="Cheese">Cheese</option>
-                        <option value="Floral">Floral</option>
-                        <option value="Sweet">Sweet</option>
-                        <option value="None">None</option>
-                        </select>
-                    </label>
+                    {/* <span>METHOD</span> */}
+                    <Select
+                        options={method}
+                        label="METHOD"
+                        labelFor="method"
+                        value={null}
+                        handleChange={this.handleChange}
+                    />
+                    <span>POSITIVE EFFECTS</span>
+                    <Checkbox 
+                        choices={positiveEffects}
+                        label="Positive Effects"
+                        labelFor="positiveEffects"
+                        // checked={false}
+                        handleInputChange={this.handleChange}
+                    />
+                    <span>NEGATIVE EFFECTS</span>                        
+                    <Checkbox 
+                        choices={negativeEffects}
+                        label="Negative Effects"
+                        labelFor="negativeEffects"
+                        // checked={false}
+                        handleInputChange={this.handleInputChange}
+                    />
+                    <span>FLAVOURS</span>
+                    <Checkbox 
+                        choices={flavour}
+                        label="Flavour"
+                        labelFor="flavour"
+                        // checked={false}
+                        handleInputChange={this.handleInputChange}
+                    />
                     <label>
                         <span>RATING</span>
                         <select name='rating' onChange={this.handleChange}>
