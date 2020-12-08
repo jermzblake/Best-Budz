@@ -80,8 +80,11 @@ componentDidUpdate () {
 
             />
           }/>
-          <Route exact path='/entry-form' render={(history) => (
-            <EntryFormPage history={history} />
+          <Route exact path='/entry-form' render={({history}) => (
+            <EntryFormPage 
+            history={history} 
+            updateDiary={this.updateDiary}
+            />
           )}/>
         </Switch>
       </div>

@@ -5,6 +5,6 @@ const helpers = require('../../config/helpers');
 
 /*---------- Protected Routes ----------*/
 // Process the token for only the routes below
-router.post('/diaries/entries', helpers.checkAuth, entriesCtrl.create);
+router.post('/', helpers.checkAuth, entriesCtrl.create);
 
 module.exports = router;

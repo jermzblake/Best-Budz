@@ -43,7 +43,7 @@ class DiaryForm extends Component {
 
     addEntry = async(e) => {
         e.preventDefault();
-        await diaryService.createEntry(this.state);
+        await diaryService.createEntry(this.state).then(diary=> this.props.updateDiary(diary));
         this.props.history.push('/');
     }
 

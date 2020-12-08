@@ -43,7 +43,7 @@ export default {
         },
         body: JSON.stringify(entry)
     };
-    return fetch(BASE_URL + "", options).then(res => res.json());  // need to add dynamic :id to BASE_URL
+    return fetch('/api/entries/', options).then(res => res.json());  // probably shouldn't hard code URL and maybe need to add dynamic :id to BASE_URL?
   }
 
 //   export function setDiary(diary) {
