@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const entrySchema = new mongoose.Schema({
     date: {type: Date},
     strain: {type: String},
+    type: {type: String},
     rating: {type: Number, min: 1, max:10},
     comments: {type: String},
     positiveEffects: [{type: Object}],

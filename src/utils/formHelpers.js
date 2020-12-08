@@ -3,6 +3,7 @@ export let positiveEffects = ["Euphoria", "Body High", "Calm", "Uplifting", "Soc
 export let negativeEffects = ["Red Eyes", "Dry Mouth", "Headache", "Sleeplessness", "Anxious"]
 export let flavours = ["Fruity", "Earthy", "Woody", "Citrus", "Spicy", "Skunk", "Cheese", "Floral", "Tonic", "Sweet" ]
 export let method = ["Dried Flower", "Pill", "Oil", "Beverage", "Edible"]
+export let types = ["Sativa", "Indica", "Hybrid"]
 
 // Form initial state functions
 export function positiveInitialState() {

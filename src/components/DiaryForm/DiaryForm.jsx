@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import diaryService from '../../utils/diaryService';
 // Form variables/state
-import { method, positiveInitialState,negativeInitialState, flavourInitialState } from '../../utils/formHelpers';
+import { method, types, positiveInitialState,negativeInitialState, flavourInitialState } from '../../utils/formHelpers';
 // Form components
 import Checkbox from '../Checkbox/Checkbox';
 import Select from '../Select/Select';
@@ -22,6 +22,7 @@ class DiaryForm extends Component {
             onsetTime: '',
             strain: '',
             comments: '',
+            type: 'Sativa',
             date: Date(),
         }
     }
@@ -123,12 +124,19 @@ class DiaryForm extends Component {
                         <span>STRAIN</span>
                         <input name='strain' value={this.state.strain} onChange={this.handleChange} />
                     </label>
+                    <Select
+                        options={types}
+                        label="TYPE"
+                        labelFor="type"
+                        value=""
+                        handleChange={this.handleChange}
+                    />
                     {/* <span>METHOD</span> */}
                     <Select
                         options={method}
                         label="METHOD"
                         labelFor="method"
-                        value={null}
+                        value=""
                         handleChange={this.handleChange}
                     />
                     <span>POSITIVE EFFECTS</span>
