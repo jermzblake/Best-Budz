@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import diaryService from '../../utils/diaryService';
 // Form variables/state
-import { positiveEffects, negativeEffects, flavour, method, positiveInitialState,negativeInitialState, flavourInitialState } from '../../utils/formHelpers';
+import { method, positiveInitialState,negativeInitialState, flavourInitialState } from '../../utils/formHelpers';
 // Form components
 import Checkbox from '../Checkbox/Checkbox';
 import Select from '../Select/Select';
@@ -34,15 +34,73 @@ class DiaryForm extends Component {
         });
     }
 
-    handleInputChange(event) {
+    // handleInputChange = (event) => {
+    //     console.log(event.target)
+    //     const target = event.target;
+    //     const value = target.type === 'checkbox' ? target.checked : target.value;
+    //     const name = target.name;
+
+    //     this.setState({
+    //     [name]: value
+    //     });
+    // }
+
+    handlePositiveChange = (event) => {
         const target = event.target;
-        const value = target.type === 'checkbox' ? target.checked : target.value;
+        // const value = target.type === 'checkbox' ? target.checked : target.value;
         const name = target.name;
 
+        const newEffectArray = this.state.positiveEffects.map((effect) => {
+            if(Object.keys(effect)[0] === name){
+                if(effect[name] === false){
+                effect[name] = true
+                }else{effect[name] = false}
+            }
+            return effect
+        })
+
         this.setState({
-        [name]: value
+        positiveEffects: newEffectArray,
         });
-  }
+    }
+
+    handleNegativeChange = (event) => {
+        const target = event.target;
+        // const value = target.type === 'checkbox' ? target.checked : target.value;
+        const name = target.name;
+
+        const newEffectArray = this.state.negativeEffects.map((effect) => {
+            if(Object.keys(effect)[0] === name){
+                if(effect[name] === false){
+                effect[name] = true
+                }else{effect[name] = false}
+            }
+            return effect
+        })
+
+        this.setState({
+        negativeEffects: newEffectArray,
+        });
+    }
+
+    handleFlavourChange = (event) => {
+        const target = event.target;
+        // const value = target.type === 'checkbox' ? target.checked : target.value;
+        const name = target.name;
+
+        const newFlavourArray = this.state.flavours.map((effect) => {
+            if(Object.keys(effect)[0] === name){
+                if(effect[name] === false){
+                effect[name] = true
+                }else{effect[name] = false}
+            }
+            return effect
+        })
+
+        this.setState({
+        flavours: newFlavourArray,
+        });
+    }
 
     addEntry = async(e) => {
         e.preventDefault();
@@ -63,7 +121,7 @@ class DiaryForm extends Component {
                     </label>
                     <label>
                         <span>STRAIN</span>
-                        <input name='strain' value={this.state.strain} onChange={this.handleChange} />
+                        <input name='strain' value={this.state.strain} onChange={this.handleInputChange} />
                     </label>
                     {/* <span>METHOD</span> */}
                     <Select
@@ -75,27 +133,27 @@ class DiaryForm extends Component {
                     />
                     <span>POSITIVE EFFECTS</span>
                     <Checkbox 
-                        choices={positiveEffects}
+                        choices={this.state.positiveEffects}
                         label="Positive Effects"
                         labelFor="positiveEffects"
                         // checked={false}
-                        handleInputChange={this.handleChange}
+                        handleInputChange={this.handlePositiveChange}
                     />
                     <span>NEGATIVE EFFECTS</span>                        
                     <Checkbox 
-                        choices={negativeEffects}
+                        choices={this.state.negativeEffects}
                         label="Negative Effects"
                         labelFor="negativeEffects"
                         // checked={false}
-                        handleInputChange={this.handleInputChange}
+                        handleInputChange={this.handleNegativeChange}
                     />
                     <span>FLAVOURS</span>
                     <Checkbox 
-                        choices={flavour}
+                        choices={this.state.flavours}
                         label="Flavour"
                         labelFor="flavour"
                         // checked={false}
-                        handleInputChange={this.handleInputChange}
+                        handleInputChange={this.handleFlavourChange}
                     />
                     <label>
                         <span>RATING</span>
