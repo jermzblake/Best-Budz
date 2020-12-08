@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-// import diaryService
+import diaryService from '../../utils/diaryService';
+import { positiveEffects } from '../../utils/formHelpers';
+import Checkbox from '../Checkbox/Checkbox';
 
 
 
@@ -10,8 +12,8 @@ class DiaryForm extends Component {
         super();
         this.state= {
             method: '',
-            positiveEffects: [],
-            negativeEffects: [],
+            positiveEffects: '',
+            negativeEffects: '',
             flavour: [],
             rating: 5,
             onsetTime: '',
@@ -29,16 +31,36 @@ class DiaryForm extends Component {
         });
     }
 
-    addEntry = e => {
+    handleInputChange(event) {
+        const target = event.target;
+        const value = target.type === 'checkbox' ? target.checked : target.value;
+        const name = target.name;
+
+        this.setState({
+        [name]: value
+        });
+  }
+
+    addEntry = async(e) => {
         e.preventDefault();
+        await diaryService.createEntry(this.state);
+        this.props.history.push('/');
     }
 
     render(){
+        console.log({positiveEffects})
         return (
             <section>
                 <h2>Consumption Entry</h2>
                 <hr />
                 <form onSubmit={this.addEntry}>
+                    {/* <Checkbox 
+                        choices={positiveEffects}
+                        label="Positive Effects"
+                        labelFor="positiveEffects"
+                        checked={false}
+                        handleInputChange={this.handleInputChange}
+                        /> */}
                     <label>
                         <span>DATE</span>
                         <input type='datetime-local' name='date' value={this.state.date} onChange={this.handleChange} />

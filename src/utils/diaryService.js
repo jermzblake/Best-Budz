@@ -7,6 +7,7 @@ const BASE_URL = '/api/diaries/';
 export default {
     index,
     createDiary,
+    createEntry,
     // setDiary,
     // getDiary
   };
@@ -31,6 +32,18 @@ export default {
       body: JSON.stringify(user)
     };
     return fetch(BASE_URL, options).then(res => res.json());
+  }
+
+  function createEntry(entry) {
+    const options = {
+        method: 'POST',
+        headers: {
+          'Content-type': 'application/json',
+          'Authorization': 'Bearer ' + tokenService.getToken()
+        },
+        body: JSON.stringify(entry)
+    };
+    return fetch(BASE_URL + "", options).then(res => res.json());  // need to add dynamic :id to BASE_URL
   }
 
 //   export function setDiary(diary) {
