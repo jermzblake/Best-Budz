@@ -6,6 +6,7 @@ import { Route, Switch } from 'react-router-dom';
 import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
 import EntryFormPage from '../EntryFormPage/EntryFormPage';
+import DiaryPage from '../DiaryPage/DiaryPage'
 //import Components
 import NavBar from '../../components/NavBar/NavBar';
 // Utilities
@@ -65,6 +66,13 @@ componentDidUpdate () {
 
         />
         <Switch>
+          <Route exact path='/dank-diary' render={props => 
+            <DiaryPage
+              {...props}
+              user={this.state.user}
+              diary={this.state.diary}
+            />
+          }/>
           <Route exact path='/signup' render={({ history }) =>
             <SignupPage
               history={history}
