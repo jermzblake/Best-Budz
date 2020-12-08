@@ -121,7 +121,7 @@ class DiaryForm extends Component {
                     </label>
                     <label>
                         <span>STRAIN</span>
-                        <input name='strain' value={this.state.strain} onChange={this.handleInputChange} />
+                        <input name='strain' value={this.state.strain} onChange={this.handleChange} />
                     </label>
                     {/* <span>METHOD</span> */}
                     <Select
