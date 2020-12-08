@@ -5,10 +5,10 @@ const entrySchema = new mongoose.Schema({
     strain: {type: String},
     rating: {type: Number, min: 1, max:10},
     comments: {type: String},
-    positiveEffects: {type: String},
-    negativeEffects: {type: String},
+    positiveEffects: [{type: Object}],
+    negativeEffects: [{type: Object}],
     method: {type: String},
-    flavour: {type: String},
+    flavour: [{type: Object}],
     onsetTime: {type: String}
 },{
     timestamps: true

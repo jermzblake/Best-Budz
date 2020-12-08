@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 
 export default function Checkbox({
     choices,
@@ -7,9 +7,6 @@ export default function Checkbox({
     checked,
     handleInputChange
   }) {
-    //   useEffect(() => {
-    //       // re map choice
-    //   }, )
       if (choices && choices.length > 0){
           return (
             <>
