@@ -11,10 +11,10 @@ export default function Select({
         return (
           <label htmlFor={labelFor}>
             {label}
-            {/* not sure why DD suggested value in select tag */}
-          <select name={labelFor} value={value} onChange={handleChange}>  
-            {options.map((option) => (
-              <option value={option}>{option}</option>
+            {/* not sure why DD suggested value={value} in select tag. unless you find use for it, keep it out */}
+          <select name={labelFor} onChange={handleChange}>  
+            {options.map((option, idx) => (
+              <option key={idx} value={option}>{option}</option>
             ))}
           </select>
       </label>
