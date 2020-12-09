@@ -1,13 +1,16 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import DiaryEntries from '../../components/Entries/Entries';
+import DiaryEntries from '../../components/DiaryEntries/DiaryEntries';
+
+
 
 function DiaryPage(props) {
             if (props.diary.entries && props.diary.entries.length > 0 ){
                 return (
                     <>
                         <header>Diary Page</header>
-                        {props.diary.entries.map((entry, idx) => (
+                        <div className="list-group">
+                        {props.diary.entries.slice(0).reverse().map((entry, idx) => (
                             <DiaryEntries 
                                 entry={entry}
                                 updateDiary={props.updateDiary}
@@ -15,6 +18,7 @@ function DiaryPage(props) {
                                 key={idx}
                             />
                         ))}
+                        </div>
                     </>
                 )
             }

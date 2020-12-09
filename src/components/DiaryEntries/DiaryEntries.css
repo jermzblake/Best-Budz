@@ -1,0 +1,13 @@
+.pvefx {
+    color: var(--green);
+}
+
+.nvefx {
+    color: var(--red);
+}
+
+.date {
+    position: absolute;
+    top: 8px;
+    right: 16px;
+}
