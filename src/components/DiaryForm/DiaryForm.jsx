@@ -8,7 +8,7 @@ import Checkbox from '../Checkbox/Checkbox';
 import Select from '../Select/Select';
 
 
-
+const todayDate = new Date().toISOString().slice(0,10);
 
 class DiaryForm extends Component {
     constructor() {
@@ -19,11 +19,11 @@ class DiaryForm extends Component {
             ...flavourInitialState(),
             method: 'Dried Flower',
             rating: 5,
-            onsetTime: '',
+            onsetTime: 'Immediate',
             strain: '',
             comments: '',
             type: 'Sativa',
-            date: Date(),
+            date: todayDate,
         }
     }
 
@@ -119,7 +119,7 @@ class DiaryForm extends Component {
 
                     <label>
                         <span>DATE</span>
-                        <input type='datetime-local' name='date' value={this.state.date} onChange={this.handleChange} />
+                        <input type='date' name='date' value={this.state.date} onChange={this.handleChange} />
                     </label>
                     <label>
                         <span>STRAIN</span>
@@ -171,7 +171,7 @@ class DiaryForm extends Component {
                         <option value="2">2</option>
                         <option value="3">3</option>
                         <option value="4">4</option>
-                        <option value="5">5</option>
+                        <option value="5" selected>5</option>
                         <option value="6">6</option>
                         <option value="7">7</option>
                         <option value="8">8</option>
@@ -181,7 +181,15 @@ class DiaryForm extends Component {
                     </label>
                     <label>
                         <span>Onset Time</span>
-                        <input name='onsetTime'  value={this.state.onsetTime} placeholder='How long until you felt effects (in minutes)' onChange={this.handleChange} />
+                        <select name='onsetTime' onChange={this.handleChange}>
+                        <option value="Immediate">Immediately</option>
+                        <option value="< 30mins">&lt;30mins</option>
+                        <option value="30mins > 60mins">30mins &gt; 60mins</option>
+                        <option value="60mins > 90mins">60mins &gt; 90mins</option>
+                        <option value="90mins > 120mins">90mins &gt; 120mins</option>
+                        <option value="120mins > 180mins">120mins &gt; 180mins</option>
+                        <option value="> 180mins">&gt;180mins</option>
+                        </select>
                     </label>
                     <label>
                         <span>COMMENTS</span>
