@@ -71,6 +71,7 @@ componentDidUpdate () {
               {...props}
               user={this.state.user}
               diary={this.state.diary}
+              updateDiary={this.updateDiary}
             />
           }/>
           <Route exact path='/signup' render={({ history }) =>

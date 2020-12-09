@@ -10,6 +10,8 @@ const NavBar = (props) => {
         &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
         <span className='NavBar-welcome'>WELCOME, {props.user.name}</span>
         <NavLink to='/entry-form' className='NavBar-link' activeClassName='selected'>ADD ENTRY</NavLink>
+        {/* the below link is for testing purposes only get rid of it before deployment */}
+        <NavLink to='/dank-diary' className='NavBar-link' activeClassName='selected'>Dank Diary</NavLink> 
       </div>
       :
       <div>

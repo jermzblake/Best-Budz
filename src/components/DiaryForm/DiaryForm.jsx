@@ -45,7 +45,8 @@ class DiaryForm extends Component {
     //     [name]: value
     //     });
     // }
-
+    
+    // Can i make these handlers one function? pass the array as an argument?
     handlePositiveChange = (event) => {
         const target = event.target;
         // const value = target.type === 'checkbox' ? target.checked : target.value;

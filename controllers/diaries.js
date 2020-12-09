@@ -1,8 +1,8 @@
 const Diary = require('../models/diary');
 
 module.exports = {
-    create,  //should be create
-    index
+    create,
+    index,
 }
 
 async function create (req, res) {

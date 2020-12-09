@@ -1,7 +1,9 @@
+// const { deleteOne } = require('../models/diary');
 const Diary = require('../models/diary');
 
 module.exports = {
     create,
+    delete: deleteOne,
 }
 
 async function create (req, res) {
@@ -14,4 +16,13 @@ async function create (req, res) {
         };
         return res.json(diary);
     })  
+}
+
+async function deleteOne (req, res) {
+    console.log(req.params.id)
+    let  diary = await Diary.findOne({'entries._id': req.params.id})
+    diary.entries.id(req.params.id).remove();
+    diary.save(function(err){
+        return res.json(diary);
+    })
 }
