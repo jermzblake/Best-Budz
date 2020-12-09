@@ -1,3 +1,7 @@
+body {
+    overflow-y: scroll !important;
+}
+
 .pvefx {
     color: var(--green);
 }
