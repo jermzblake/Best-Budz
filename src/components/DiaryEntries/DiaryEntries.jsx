@@ -48,7 +48,7 @@ class DiaryEntries extends Component {
             <MDBContainer>
                 <div onClick={this.toggle(14)} className="list-group-item list-group-item-action">
                     <div className="d-flex w-100 justify-content-between">
-                        <h5 className="mb-2"><span className="strain">{this.props.entry.strain}</span>&nbsp; | &nbsp;{this.props.entry.rating}/10</h5>
+                        <h5 className="mb-2"><span className="strain">{this.props.entry.strain}</span>&nbsp; | &nbsp;{this.props.entry.rating}</h5>
                         <small className="date">{this.noTimeDate}</small>
                     </div>
                     <div className="larger-device">
@@ -62,8 +62,8 @@ class DiaryEntries extends Component {
                 </div>
                 <MDBModal isOpen={this.state.modal14} toggle={this.toggle(14)} centered>
                     <MDBModalHeader toggle={this.toggle(14)}>
-                        <div className="larger-device"><span className="strain">{this.props.entry.strain }</span>&nbsp;- &nbsp;<span className="text-muted">{this.props.entry.type}</span> |&nbsp;&nbsp;{this.props.entry.rating}/10</div>
-                        <div className="smaller-device mb-0"><p><span className="strain">{this.props.entry.strain }</span>&nbsp;- &nbsp;<span className="text-muted">{this.props.entry.type}</span></p><p>{this.props.entry.rating}/10</p></div>
+                        <div className="larger-device"><span className="strain">{this.props.entry.strain }</span>&nbsp;- &nbsp;<span className="text-muted">{this.props.entry.type}</span> |&nbsp;&nbsp;{this.props.entry.rating}</div>
+                        <div className="smaller-device mb-0"><p><span className="strain">{this.props.entry.strain }</span>&nbsp;- &nbsp;<span className="text-muted">{this.props.entry.type}</span></p><p>{this.props.entry.rating}</p></div>
                     </MDBModalHeader>
                     <MDBModalBody>
                         <div className="container-fluid">

@@ -4,7 +4,7 @@ const entrySchema = new mongoose.Schema({
     date: {type: Date},
     strain: {type: String},
     type: {type: String},
-    rating: {type: Number, min: 1, max:10},
+    rating: {type: String},
     comments: {type: String},
     positiveEffects: [{type: Object}],
     negativeEffects: [{type: Object}],

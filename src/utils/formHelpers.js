@@ -4,6 +4,8 @@ export let negativeEffects = ["Red Eyes", "Dry Mouth", "Headache", "Sleeplessnes
 export let flavours = ["Fruity", "Earthy", "Woody", "Citrus", "Spicy", "Skunk", "Cheese", "Floral", "Tonic", "Sweet", "None"]
 export let method = ["Dried Flower", "Pill", "Oil", "Beverage", "Edible", "Other"]
 export let types = ["Sativa", "Indica", "Hybrid"]
+export let rating = ["☆☆☆☆☆", "★☆☆☆☆", "★★☆☆☆", "★★★☆☆", "★★★★☆", "★★★★★"]
+export let intervals = ["Immediate", "< 30mins", "30mins > 60mins", "30mins > 60mins", "90mins > 120mins", "120mins > 180mins", "> 180mins"]
 
 // Form initial state functions
 export function positiveInitialState() {
