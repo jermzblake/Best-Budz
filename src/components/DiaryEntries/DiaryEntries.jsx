@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 import diaryService from '../../utils/diaryService';
 import '../DiaryEntries/DiaryEntries.css'
 // Material Design Bootstrap 4 React
@@ -28,8 +29,6 @@ class DiaryEntries extends Component {
     handleDelete = async (e) => {
         // e.preventDefault();
         await diaryService.deleteEntry(this.props.entry).then(diary => this.props.updateDiary(diary));
-        this.toggle(10);
-        this.toggle(14);
         this.props.history.push('/dank-diary');
     }
 
@@ -63,17 +62,17 @@ class DiaryEntries extends Component {
                         consequat.
                     </MDBModalBody>
                     <MDBModalFooter>
-                        <MDBBtn color="warning" onClick={this.toggle(10)}>Delete</MDBBtn>
-                        <MDBBtn color="primary">Update</MDBBtn>
+                        <MDBBtn color="warning" onClick={this.handleDelete}>Delete</MDBBtn>
+                        <Link to={"/edit/" + this.props.entry._id} color="primary">Update</Link>
                     </MDBModalFooter>
                 </MDBModal>
-                <MDBModal isOpen={this.state.modal10} toggle={this.toggle(10)} frame position="bottom">
+                {/* <MDBModal isOpen={this.state.modal10} toggle={this.toggle(10)} frame position="bottom">
                     <MDBModalBody className="text-center">
-                        ARE YOU SURE YOU WANT TO DELETE? THIS ACTION CANNOT BE UNDONE!!
+                        <p>ARE YOU SURE YOU WANT TO DELETE? THIS ACTION CANNOT BE UNDONE!!</p>
                         <MDBBtn color="secondary" onClick={this.toggle(10)}>Cancel</MDBBtn>
                         <MDBBtn color="primary" onClick={this.handleDelete}>Save changes</MDBBtn>
                     </MDBModalBody>
-                </MDBModal>
+                </MDBModal> */}
             </MDBContainer>
         );
     }

@@ -6,7 +6,8 @@ import { Route, Switch } from 'react-router-dom';
 import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
 import EntryFormPage from '../EntryFormPage/EntryFormPage';
-import DiaryPage from '../DiaryPage/DiaryPage'
+import DiaryPage from '../DiaryPage/DiaryPage';
+import UpdatePage from '../UpdatePage/UpdatePage';
 //import Components
 import NavBar from '../../components/NavBar/NavBar';
 // Utilities
@@ -95,6 +96,14 @@ componentDidUpdate () {
             updateDiary={this.updateDiary}
             />
           )}/>
+          <Route exact path='/edit/:id' render={props => 
+            <UpdatePage 
+            {...props}
+            user={this.state.user}
+            diary={this.state.diary} 
+            updateDiary={this.updateDiary}
+            />
+          }/>
         </Switch>
       </div>
     );

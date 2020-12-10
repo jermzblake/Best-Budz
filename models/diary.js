@@ -9,7 +9,7 @@ const entrySchema = new mongoose.Schema({
     positiveEffects: [{type: Object}],
     negativeEffects: [{type: Object}],
     method: {type: String},
-    flavour: [{type: Object}],
+    flavours: [{type: Object}],
     onsetTime: {type: String}
 },{
     timestamps: true
