@@ -1,8 +1,8 @@
 // Form options
-export let positiveEffects = ["Euphoria", "Body High", "Calm", "Uplifting", "Sociable", "Energetic", "Giggly", "Creative", "Relaxed", "Sleepy", "Clear Headed", "Invigorating"]
-export let negativeEffects = ["Red Eyes", "Dry Mouth", "Headache", "Sleeplessness", "Anxious"]
-export let flavours = ["Fruity", "Earthy", "Woody", "Citrus", "Spicy", "Skunk", "Cheese", "Floral", "Tonic", "Sweet" ]
-export let method = ["Dried Flower", "Pill", "Oil", "Beverage", "Edible"]
+export let positiveEffects = ["Euphoria", "Body High", "Calm", "Uplifting", "Sociable", "Energetic", "Giggly", "Creative", "Relaxed", "Sleepy", "Clear Headed", "Invigorating", "None"]
+export let negativeEffects = ["Red Eyes", "Dry Mouth", "Headache", "Sleeplessness", "Anxious", "None"]
+export let flavours = ["Fruity", "Earthy", "Woody", "Citrus", "Spicy", "Skunk", "Cheese", "Floral", "Tonic", "Sweet", "None"]
+export let method = ["Dried Flower", "Pill", "Oil", "Beverage", "Edible", "Other"]
 export let types = ["Sativa", "Indica", "Hybrid"]
 
 // Form initial state functions

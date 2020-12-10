@@ -15,3 +15,24 @@ body {
     top: 8px;
     right: 16px;
 }
+
+.categories {
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+.strain {
+    text-transform: uppercase;
+}
+
+@media only screen and (max-width : 767.5px) {
+    .larger-device {
+        display: none;
+    }
+}
+
+@media only screen and (min-width : 768px) {
+    .smaller-device {
+        display: none;
+    }
+}
