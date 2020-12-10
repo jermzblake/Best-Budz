@@ -62,3 +62,20 @@ code {
   font-weight: bold;
   color: var(--aqua);
 }
+
+button:disabled {
+  background-color: lightgrey;
+}
+
+input:invalid {
+  border: 2px dashed var(--red);
+}
+
+input:valid {
+  border: 2px solid var(--green);
+}
+
+select:valid {
+  border: 2px solid var(--green);
+
+}

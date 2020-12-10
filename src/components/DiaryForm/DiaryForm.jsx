@@ -24,28 +24,22 @@ class DiaryForm extends Component {
             comments: '',
             type: 'Sativa',
             date: todayDate,
+            //track validity of form
+            formInvalid: true
         }
     }
+
+    formRef = React.createRef();
 
     handleChange = (e) => {
         this.props.updateMessage('');
         this.setState({
           // Using ES2015 Computed Property Names
-          [e.target.name]: e.target.value
+          [e.target.name]: e.target.value,
+          formInvalid: !this.formRef.current.checkValidity()  //update using the formRef
         });
     }
-
-    // handleInputChange = (event) => {
-    //     console.log(event.target)
-    //     const target = event.target;
-    //     const value = target.type === 'checkbox' ? target.checked : target.value;
-    //     const name = target.name;
-
-    //     this.setState({
-    //     [name]: value
-    //     });
-    // }
-    
+   
     // Can i make these handlers one function? pass the array as an argument?
     handlePositiveChange = (event) => {
         const target = event.target;
@@ -106,6 +100,7 @@ class DiaryForm extends Component {
 
     addEntry = async(e) => {
         e.preventDefault();
+        if (!this.formRef.current.checkValidity()) return;  // Do nothing if the form is invalid
         await diaryService.createEntry(this.state).then(diary=> this.props.updateDiary(diary));
         this.props.history.push('/dank-diary');
     }
@@ -116,14 +111,23 @@ class DiaryForm extends Component {
                 <div className="container">
                     <h2>Consumption Entry</h2>
                     <hr />
-                    <form onSubmit={this.addEntry}>
+                    <form ref={this.formRef} onSubmit={this.addEntry}>
                         <label>
                             <span>DATE</span>
                             <input type='date' name='date' className="form-control shadow-none" value={this.state.date} onChange={this.handleChange} />
                         </label>
                         <label>
                             <span>STRAIN</span>
-                            <input type="text" name='strain' className="form-control shadow-none" value={this.state.strain} onChange={this.handleChange} />
+                            <input 
+                                type="text" 
+                                name='strain' 
+                                className="form-control shadow-none" 
+                                value={this.state.strain} 
+                                onChange={this.handleChange} 
+                                //  these two additional props set constraints *
+                                required
+                                pattern=".{2,}"
+                            />
                         </label>
                         <Select
                             options={types}
@@ -200,7 +204,7 @@ class DiaryForm extends Component {
                             <label for="comments">COMMENTS</label>
                             <textarea name='comments' className="form-control shadow-none" id="comments" value={this.state.comments} placeholder='How you feeling champ?' onChange={this.handleChange}/>
                         </div>
-                        <button onClick={this.addEntry}>ADD ENTRY</button>&nbsp;&nbsp;
+                        <button onClick={this.addEntry} disabled={this.state.formInvalid}>ADD ENTRY</button>&nbsp;&nbsp;
                         <Link to='/'>Cancel</Link>
                     </form>
                 </div>

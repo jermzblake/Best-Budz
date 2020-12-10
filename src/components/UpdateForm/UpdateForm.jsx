@@ -20,8 +20,12 @@ class UpdateForm extends Component {
             strain: '',
             comments: '',
             type: 'Sativa', 
+            //track validity of form
+            formInvalid: true
         }
     }
+
+    formRef = React.createRef();
 
     findEntryState = async() => {
         // console.log(this.props.match.params.id)
@@ -53,7 +57,8 @@ class UpdateForm extends Component {
         this.props.updateMessage('');
         this.setState({
           // Using ES2015 Computed Property Names
-          [e.target.name]: e.target.value
+          [e.target.name]: e.target.value,
+          formInvalid: !this.formRef.current.checkValidity() //update using the formRef
         });
     }
 
@@ -113,7 +118,7 @@ class UpdateForm extends Component {
 
     updateEntry = async(e) => {
         e.preventDefault();
-        console.log(this.state)
+        if (!this.formRef.current.checkValidity()) return;  // Do nothing if the form is invalid
         await diaryService.updateEntry(this.state).then(diary=> this.props.updateDiary(diary));
         this.props.history.push('/dank-diary');
     }
@@ -124,10 +129,19 @@ class UpdateForm extends Component {
                 <div className="container">
                     <h2>Update Consumption Entry</h2>
                     <hr />
-                    <form onSubmit={this.updateEntry}>
+                    <form ref={this.formRef} onSubmit={this.updateEntry}>
                         <label>
                             <span>STRAIN</span>
-                            <input type="text" name='strain' className="form-control shadow-none" value={this.state.strain} onChange={this.handleChange} />
+                            <input 
+                                type="text" 
+                                name='strain' 
+                                className="form-control shadow-none" 
+                                value={this.state.strain} 
+                                onChange={this.handleChange} 
+                                //  these two additional props set constraints
+                                required
+                                pattern=".{2,}"
+                            />
                         </label>
                         <Select
                             options={types}
@@ -201,7 +215,7 @@ class UpdateForm extends Component {
                             <label for="comments">COMMENTS</label>
                             <textarea name='comments' className="form-control shadow-none" id="comments" rows="4" value={this.state.comments} placeholder='How you feeling champ?' onChange={this.handleChange}/>
                         </div>
-                        <button onClick={this.updateEntry}>UPDATE ENTRY</button>&nbsp;&nbsp;
+                        <button onClick={this.updateEntry} disabled={this.state.formInvalid}>UPDATE ENTRY</button>&nbsp;&nbsp;
                         <Link to='/dank-diary'>Cancel</Link>
                     </form>
                 </div>
