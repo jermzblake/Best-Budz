@@ -27,9 +27,9 @@ class SignupForm extends Component {
           // Let <App> know a user has signed up!
           this.props.handleSignup();
           // Initialize the Dank Diary and set it to App's state
-          diaryService.createDiary(this.props.user).then(diary=> this.props.updateDiary(diary))
+          await diaryService.createDiary(this.props.user).then(diary=> this.props.updateDiary(diary))
           // Successfully signed up - show root page
-          this.props.history.push('/');
+          this.props.history.push('/dank-diary');
         } catch (err) {
           // Invalid user data (probably duplicate email)
           this.props.updateMessage(err.message);
@@ -67,8 +67,8 @@ class SignupForm extends Component {
           </div>
           <div className="form-group">
             <div className="col-sm-12 text-center">
-              <button className="btn btn-default" disabled={this.isFormInvalid()}>Sign Up</button>&nbsp;&nbsp;
-              <Link to='/'>Cancel</Link>
+              <button className="btn" disabled={this.isFormInvalid()}>Sign Up</button>&nbsp;&nbsp;
+              <Link to='/' className="Link">Cancel</Link>
             </div>
           </div>
         </form>

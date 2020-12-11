@@ -13,7 +13,7 @@ export default function Select({
           <label htmlFor={labelFor}>
             {label}
             {/* not sure why DD suggested value={value} in select tag. unless you find use for it, keep it out */}
-          <select className="custom-select border-none shadow-none" name={labelFor} onChange={handleChange}>  
+          <select className="custom-select border-none shadow-none select" name={labelFor} onChange={handleChange}>  
             {options.map((option, idx) => (
               <option key={idx} value={option}>{option}</option>
             ))}

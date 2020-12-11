@@ -60,7 +60,7 @@ class DiaryEntries extends Component {
                     </div>
                     <small className="text-muted">{this.props.entry.type}</small>
                 </div>
-                <MDBModal isOpen={this.state.modal14} toggle={this.toggle(14)} centered>
+                <MDBModal isOpen={this.state.modal14} toggle={this.toggle(14)} className="modal" centered>
                     <MDBModalHeader toggle={this.toggle(14)}>
                         <div className="larger-device"><span className="strain">{this.props.entry.strain }</span>&nbsp;- &nbsp;<span className="text-muted">{this.props.entry.type}</span> |&nbsp;&nbsp;{this.props.entry.rating}</div>
                         <div className="smaller-device mb-0"><p><span className="strain">{this.props.entry.strain }</span>&nbsp;- &nbsp;<span className="text-muted">{this.props.entry.type}</span></p><p>{this.props.entry.rating}</p></div>
@@ -68,8 +68,8 @@ class DiaryEntries extends Component {
                     <MDBModalBody>
                         <div className="container-fluid">
                             <div className="row categories">
-                                <div class="col text-center">Method</div>
-                                <div class="col text-center">Flavours/Aromas</div>
+                                <div className="col text-center">Method</div>
+                                <div className="col text-center">Flavours/Aromas</div>
                             </div>
                                 <div className="row">
                                     <div className="col-6 text-center">{this.props.entry.method}</div>
@@ -95,17 +95,10 @@ class DiaryEntries extends Component {
                         </div>
                     </MDBModalBody>
                     <MDBModalFooter>
-                        <MDBBtn color="danger" onClick={this.handleDelete}>Delete</MDBBtn>
-                        <Link to={"/edit/" + this.props.entry._id} color="primary">Update</Link>
+                        <MDBBtn color="danger" className="modal-delete-btn" onClick={this.handleDelete}>Delete</MDBBtn>
+                        <Link to={"/edit/" + this.props.entry._id} color="primary" className="btn">Update</Link>
                     </MDBModalFooter>
                 </MDBModal>
-                {/* <MDBModal isOpen={this.state.modal10} toggle={this.toggle(10)} frame position="bottom">
-                    <MDBModalBody className="text-center">
-                        <p>ARE YOU SURE YOU WANT TO DELETE? THIS ACTION CANNOT BE UNDONE!!</p>
-                        <MDBBtn color="secondary" onClick={this.toggle(10)}>Cancel</MDBBtn>
-                        <MDBBtn color="primary" onClick={this.handleDelete}>Save changes</MDBBtn>
-                    </MDBModalBody>
-                </MDBModal> */}
             </MDBContainer>
         );
     }

@@ -114,7 +114,7 @@ class DiaryForm extends Component {
                     <form ref={this.formRef} onSubmit={this.addEntry}>
                         <label>
                             <span>DATE</span>
-                            <input type='date' name='date' className="form-control shadow-none" value={this.state.date} onChange={this.handleChange} />
+                            <input type='date' name='date' className="form-control shadow-none select" value={this.state.date} onChange={this.handleChange} />
                         </label>
                         <label>
                             <span>STRAIN</span>
@@ -185,27 +185,12 @@ class DiaryForm extends Component {
                             handleInputChange={this.handleFlavourChange}
                         />
                         <hr/>
-                        <label>
-                            <span>RATING</span>
-                            <select name='rating' onChange={this.handleChange}>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5" selected>5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-                            </select>
-                        </label>
                         <div className="row form-group">
                             <label for="comments">COMMENTS</label>
                             <textarea name='comments' className="form-control shadow-none" id="comments" value={this.state.comments} placeholder='How you feeling champ?' onChange={this.handleChange}/>
                         </div>
-                        <button onClick={this.addEntry} disabled={this.state.formInvalid}>ADD ENTRY</button>&nbsp;&nbsp;
-                        <Link to='/'>Cancel</Link>
+                        <button className="btn" onClick={this.addEntry} disabled={this.state.formInvalid}>ADD ENTRY</button>&nbsp;&nbsp;
+                        <Link to='/' className="Link">Cancel</Link>
                     </form>
                 </div>
             </section>

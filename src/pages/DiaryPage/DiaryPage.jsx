@@ -7,7 +7,7 @@ function DiaryPage(props) {
             if (props.diary.entries && props.diary.entries.length > 0 ){
                 return (
                     <>
-                        <header>Diary Page</header>
+                        <header>{props.user.name}'s Dank Diary</header>
                         <div className="list-group">
                         {props.diary.entries.slice(0).reverse().map((entry, idx) => (
                             <DiaryEntries 

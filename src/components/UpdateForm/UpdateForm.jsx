@@ -20,12 +20,8 @@ class UpdateForm extends Component {
             strain: '',
             comments: '',
             type: 'Sativa', 
-            //track validity of form
-            formInvalid: true
         }
     }
-
-    formRef = React.createRef();
 
     findEntryState = async() => {
         // console.log(this.props.match.params.id)
@@ -58,7 +54,6 @@ class UpdateForm extends Component {
         this.setState({
           // Using ES2015 Computed Property Names
           [e.target.name]: e.target.value,
-          formInvalid: !this.formRef.current.checkValidity() //update using the formRef
         });
     }
 
@@ -118,7 +113,6 @@ class UpdateForm extends Component {
 
     updateEntry = async(e) => {
         e.preventDefault();
-        if (!this.formRef.current.checkValidity()) return;  // Do nothing if the form is invalid
         await diaryService.updateEntry(this.state).then(diary=> this.props.updateDiary(diary));
         this.props.history.push('/dank-diary');
     }
@@ -138,9 +132,6 @@ class UpdateForm extends Component {
                                 className="form-control shadow-none" 
                                 value={this.state.strain} 
                                 onChange={this.handleChange} 
-                                //  these two additional props set constraints
-                                required
-                                pattern=".{2,}"
                             />
                         </label>
                         <Select
@@ -172,7 +163,7 @@ class UpdateForm extends Component {
                             handleChange={this.handleChange}
                         />
                         <hr/>
-                        <span>POSITIVE EFFECTS</span>
+                        <h3>POSITIVE EFFECTS</h3>
                         <Checkbox 
                             choices={this.state.positiveEffects}
                             label="Positive Effects"
@@ -180,7 +171,7 @@ class UpdateForm extends Component {
                             handleInputChange={this.handlePositiveChange}
                         />
                         <hr/>
-                        <span>NEGATIVE EFFECTS</span>                        
+                        <h3>NEGATIVE EFFECTS</h3>                        
                         <Checkbox 
                             choices={this.state.negativeEffects}
                             label="Negative Effects"
@@ -188,7 +179,7 @@ class UpdateForm extends Component {
                             handleInputChange={this.handleNegativeChange}
                         />
                         <hr/>
-                        <span>FLAVOURS</span>
+                        <h3>FLAVOURS</h3>
                         <Checkbox 
                             choices={this.state.flavours}
                             label="Flavour"
@@ -196,27 +187,12 @@ class UpdateForm extends Component {
                             handleInputChange={this.handleFlavourChange}
                         />
                         <hr/>
-                        <label>
-                            <span>RATING</span>
-                            <select name='rating' onChange={this.handleChange}>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-                            </select>
-                        </label>
                         <div className="row form-group">
                             <label for="comments">COMMENTS</label>
                             <textarea name='comments' className="form-control shadow-none" id="comments" rows="4" value={this.state.comments} placeholder='How you feeling champ?' onChange={this.handleChange}/>
                         </div>
-                        <button onClick={this.updateEntry} disabled={this.state.formInvalid}>UPDATE ENTRY</button>&nbsp;&nbsp;
-                        <Link to='/dank-diary'>Cancel</Link>
+                        <button onClick={this.updateEntry}>UPDATE ENTRY</button>&nbsp;&nbsp;
+                        <Link to='/dank-diary' className="Link">Cancel</Link>
                     </form>
                 </div>
             </section>

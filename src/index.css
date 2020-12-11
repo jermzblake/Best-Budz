@@ -2,6 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700;800;900&family=Roboto:wght@300;400;700;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Sigmar+One&display=swap");
 @import url("http://fonts.googleapis.com/css?family=Monoton&effect=neon");
+@import url('https://fonts.googleapis.com/css2?family=Nerko+One&display=swap');
 /* Global reset and font family set */
 * {
   font-family: var(--font-roboto);
@@ -16,12 +17,12 @@ project with: Ex. var(--nameOfVar) */
 
 :root {
   /* Colors */
-  --main-bg-color: #FAF1B3;
+  --main-bg-color: #101812;
   --box-color: #e0aaff;
-  --font-color: #101812;
+  --font-color: #FCF6CE;
   --second-font: #727272;
   --hover-bg: #e0aaff;
-  --btn-color: #0062ff;
+  --btn-color: #09D77B;
   --red: #fb3640;
   --yellow: #F4E04D;
   --orange: #FFBC42;  /* this is your main yellow */
@@ -31,6 +32,7 @@ project with: Ex. var(--nameOfVar) */
   --aqua: #77F9BE;
   --kgreen: #273C2C;
   --dark: #101812;
+  --champagne: #FAF1B3;
 
   /* Fonts */
   /* --font-poppins: "Poppins", sans-serif; */
@@ -40,6 +42,10 @@ project with: Ex. var(--nameOfVar) */
   /* --font-roboto: "Roboto", sans-serif; */
   /*300,400 Weights*/
   --font-roboto: "Roboto", sans-serif;
+
+  /* --font-nerko: "Nerko One", cursive; */
+  /* 400 weight */
+  --font-nerko: "Nerko One", cursive;
 
   /* Shadows and Effects */
   --border-radius: 8px;
@@ -51,11 +57,15 @@ project with: Ex. var(--nameOfVar) */
 body {
   font-family: var(--font-robto);
   background-color: var(--main-bg-color);
-  /* height: 100vh; */
+  color: var(--font-color);
+  background-image: url("./static/images/plant-leaves-medium-p.png");
+  margin-top: 45px;
 }
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+
+header {
+  text-align: center;
+  font-size: xx-large;
+  font-family: var(--font-nerko);
 }
 
 .selected {
@@ -65,6 +75,16 @@ code {
 
 button:disabled {
   background-color: lightgrey;
+}
+
+input[type="password"],
+input[type="email"],
+input[type="text"], textarea {
+  background-color: var(--font-color);
+}
+
+.select {
+  background-color: var(--font-color);
 }
 
 input:invalid {
@@ -78,4 +98,57 @@ input:valid {
 select:valid {
   border: 2px solid var(--green);
 
+}
+
+.Link {
+  color: white;
+}
+
+.Link:hover {
+  color: var(--font-color);
+  font-weight: 700;
+}
+
+.btn {
+  margin: 10px;
+  background-color: var(--btn-color);
+  border: none;
+  color: white;
+  padding: 12px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  text-transform: uppercase;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+form > button {
+  margin: 10px;
+  background-color: var(--btn-color);
+  border: none;
+  color: white;
+  padding: 12px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  text-transform: uppercase;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+hr {
+  color: var(--font-color);  /* Chrome and Safari*/
+  border-color: var(--font-color);  /* Firefox and Opera */
+  background-color: var(--font-color);  /* IE7+ */
+}
+
+a {
+  color: yello;
+}
+
+.container {
+  background: rgb(39,60,44, 0.6);
 }
