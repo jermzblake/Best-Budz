@@ -144,7 +144,7 @@ class UpdateForm extends Component {
                         <Select
                             options={rating}
                             label="RATING"
-                            labelFor="RATING"
+                            labelFor="rating"
                             value=""
                             handleChange={this.handleChange}
                         />
