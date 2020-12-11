@@ -64,7 +64,7 @@ body {
 
 header {
   text-align: center;
-  font-size: xx-large;
+  font-size: 100px;
   font-family: var(--font-nerko);
 }
 
@@ -151,4 +151,16 @@ a {
 
 .container {
   background: rgb(39,60,44, 0.6);
+}
+
+@media only screen and (max-width : 767.5px) {
+  body {
+    margin-top: 80px;
+  }
+
+  header {
+    text-align: center;
+    font-size: xx-large;
+    font-family: var(--font-nerko);
+  }
 }

@@ -1,5 +1,7 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import DiaryEntries from '../../components/DiaryEntries/DiaryEntries';
+import '../DiaryPage/DiaryPage.css';
 
 
 
@@ -23,8 +25,10 @@ function DiaryPage(props) {
             }
             return (
                 <>
-                    <header>Diary Page</header>
-                    <p>You have no entries create one</p>
+                    <header>{props.user.name}'s Dank Diary</header>
+                    <div className="container">
+                        <Link to="entry-form" className="Link entry-link">You have no entries. Click here to create one.</Link>
+                    </div>
                 </>
             )
 

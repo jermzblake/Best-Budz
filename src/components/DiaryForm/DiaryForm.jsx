@@ -43,7 +43,6 @@ class DiaryForm extends Component {
     // Can i make these handlers one function? pass the array as an argument?
     handlePositiveChange = (event) => {
         const target = event.target;
-        // const value = target.type === 'checkbox' ? target.checked : target.value;
         const name = target.name;
 
         const newEffectArray = this.state.positiveEffects.map((effect) => {
@@ -62,7 +61,6 @@ class DiaryForm extends Component {
 
     handleNegativeChange = (event) => {
         const target = event.target;
-        // const value = target.type === 'checkbox' ? target.checked : target.value;
         const name = target.name;
 
         const newEffectArray = this.state.negativeEffects.map((effect) => {
@@ -81,7 +79,6 @@ class DiaryForm extends Component {
 
     handleFlavourChange = (event) => {
         const target = event.target;
-        // const value = target.type === 'checkbox' ? target.checked : target.value;
         const name = target.name;
 
         const newFlavourArray = this.state.flavours.map((effect) => {
@@ -163,7 +160,6 @@ class DiaryForm extends Component {
                             choices={this.state.positiveEffects}
                             label="Positive Effects"
                             labelFor="positiveEffects"
-                            // checked={false}
                             handleInputChange={this.handlePositiveChange}
                         />
                         <hr/>
@@ -172,7 +168,6 @@ class DiaryForm extends Component {
                             choices={this.state.negativeEffects}
                             label="Negative Effects"
                             labelFor="negativeEffects"
-                            // checked={false}
                             handleInputChange={this.handleNegativeChange}
                         />
                         <hr/>
@@ -181,7 +176,6 @@ class DiaryForm extends Component {
                             choices={this.state.flavours}
                             label="Flavour"
                             labelFor="flavour"
-                            // checked={false}
                             handleInputChange={this.handleFlavourChange}
                         />
                         <hr/>

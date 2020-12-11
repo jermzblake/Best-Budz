@@ -1,5 +1,8 @@
 .custom-nav {
   background-color: var(--orange);
+  display: flex;
+  justify-content: space-around;
+
 }
   
 .NavBar-link {
@@ -11,12 +14,6 @@
     color: var(--kgreen);
 }
   
-/* .Navbar {
-    display: flex;
-    justify-content: center;
-    margin: 0 0 20px;
-} */
-
 .selected {
     font-weight: bold;
     color: var(--green);

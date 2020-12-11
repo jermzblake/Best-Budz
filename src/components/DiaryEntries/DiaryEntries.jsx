@@ -11,7 +11,6 @@ class DiaryEntries extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            modal10: false,  //confirmation modal
             modal14: false
         }
     }

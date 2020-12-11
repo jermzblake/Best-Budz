@@ -1,4 +1,3 @@
-// const { deleteOne } = require('../models/diary');
 const Diary = require('../models/diary');
 
 module.exports = {
@@ -10,7 +9,7 @@ module.exports = {
 
 async function create (req, res) {
     let diary = await Diary.findById(req.user._id);
-    diary.entries.push(req.body)  // initial thought is that form data will be sent in req.body 
+    diary.entries.push(req.body)  
     diary.save(function(err){
         if(err) {
         console.log(err);
