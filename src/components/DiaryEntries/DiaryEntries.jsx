@@ -45,7 +45,7 @@ class DiaryEntries extends Component {
     render() {
         return (
             <MDBContainer>
-                <div onClick={this.toggle(14)} className="list-group-item list-group-item-action">
+                <div onClick={this.toggle(14)} className="list-group-item pointer list-group-item-action">
                     <div className="d-flex w-100 justify-content-between">
                         <h5 className="mb-2"><span className="strain">{this.props.entry.strain}</span>&nbsp; | &nbsp;{this.props.entry.rating}</h5>
                         <small className="date">{this.noTimeDate}</small>

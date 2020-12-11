@@ -36,6 +36,10 @@ body {
     font-size: 1rem;
 }
 
+.pointer {
+    cursor: pointer;
+}
+
 @media only screen and (max-width : 767.5px) {
     .larger-device {
         display: none;
