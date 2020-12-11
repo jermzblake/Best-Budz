@@ -9,9 +9,7 @@ const NavBar = (props) => {
         <Link to='/login' className='NavBar-link' onClick={props.handleLogout}>LOG OUT</Link>
         &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
         <span className='NavBar-welcome'>WELCOME, {props.user.name}</span>
-        <NavLink to='/entry-form' className='NavBar-link' activeClassName='selected'><strong>+</strong>ENTRY</NavLink>
-        {/* get rid of the link below once landing page complete */}
-        <NavLink to='/dank-diary' className='NavBar-link' activeClassName='selected'>Dank Diary</NavLink> 
+        <NavLink to='/entry-form' className='NavBar-link' activeClassName='selected'><strong>+</strong>ADD ENTRY</NavLink>
       </div>
       :
       <div>

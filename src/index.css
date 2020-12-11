@@ -109,6 +109,15 @@ select:valid {
   font-weight: 700;
 }
 
+
+.landing-link {
+  text-align: center;
+  font-size: 50px;
+  font-family: var(--font-nerko);
+  color: var(--font-color);
+  text-decoration: underline;
+}
+
 .btn {
   margin: 10px;
   background-color: var(--btn-color);
@@ -145,9 +154,7 @@ hr {
   background-color: var(--font-color);  /* IE7+ */
 }
 
-a {
-  color: yello;
-}
+
 
 .container {
   background: rgb(39,60,44, 0.6);
@@ -162,5 +169,13 @@ a {
     text-align: center;
     font-size: xx-large;
     font-family: var(--font-nerko);
+  }
+
+  .landing-link {
+    text-align: center;
+    font-size: x-large;
+    font-family: var(--font-nerko);
+    color: var(--font-color);
+    text-decoration: underline;
   }
 }

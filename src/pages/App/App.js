@@ -8,6 +8,7 @@ import LoginPage from '../LoginPage/LoginPage';
 import EntryFormPage from '../EntryFormPage/EntryFormPage';
 import DiaryPage from '../DiaryPage/DiaryPage';
 import UpdatePage from '../UpdatePage/UpdatePage';
+import LandingPage from '../LandingPage/LandingPage';
 //import Components
 import NavBar from '../../components/NavBar/NavBar';
 // Utilities
@@ -64,9 +65,14 @@ componentDidUpdate () {
         <NavBar
           user={this.state.user}
           handleLogout={this.handleLogout}
-
         />
         <Switch>
+          <Route exact path='/' render={props => 
+            <LandingPage
+              {...props}
+              user={this.state.user}
+            />
+          }/>
           <Route exact path='/dank-diary' render={props => 
             <DiaryPage
               {...props}
