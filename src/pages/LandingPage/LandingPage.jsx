@@ -5,7 +5,7 @@ import '../LandingPage/LandingPage.css';
 const LandingPage = (props) => {
     let landing = props.user ?
         <div>
-            <Link to="/dank-diary" className="Link landing-link">Welcome! Check out your Dank Diary!</Link>
+            <Link to="/dank-diary" className="Link landing-link">Welcome, {props.user.name}! Check out your Dank Diary!</Link>
         </div>
         :
         <div>
