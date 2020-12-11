@@ -2,6 +2,7 @@
 This app is a cannabis consumption diary. There are a lot of cannabis strains and products out there. It can be quite overwhelming even for 'seasoned vets'. Thus, this app was created to allow users to log their experiences with differenct cannabis strains. Soon this site will include a large database of strains including, strain attributes. Users will be able to select strains from the database and add them to their consumption diary, comment or leave reviews on strains.
 ---
 ### Screenshots
+![Landing Page](src/static/images/landing.png)
 
 ### Technologies Used:
 - MongoDB/Mongoose
