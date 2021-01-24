@@ -15,7 +15,7 @@ export default function Checkbox({
                     <label key={idx} className="checkbox-container">
                         &lt; {Object.keys(choice)[0]}&nbsp;
                         <input type="checkbox" name={Object.keys(choice)[0]} checked={Object.values(choice)[0]} onChange={handleInputChange} />
-                        <span class="checkmark"></span>
+                        <span className="checkmark"></span>
                     </label>
                 ))}
             </>

@@ -2,6 +2,15 @@ import tokenService from './tokenService'
 
 const BASE_URL = '/api/users/';
 
+const functions = {
+  signup,
+  getUser,
+  logout,
+  login
+}; 
+
+export default functions
+
 function signup(user) {
   return fetch(BASE_URL + 'signup', {
     method: 'POST',
@@ -41,10 +50,4 @@ function logout() {
   tokenService.removeToken();
 }
 
-// eslint-disable-next-line
-export default {
-  signup,
-  getUser,
-  logout,
-  login
-}; 
+

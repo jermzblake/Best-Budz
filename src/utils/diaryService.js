@@ -5,16 +5,16 @@ const BASE_URL = '/api/diaries/';
 const ENTRY_URL = '/api/entries/';
 
 // eslint-disable-next-line
-export default {
+const functions = {
     index,
     createDiary,
     createEntry,
     deleteEntry,
     getEntry,
     updateEntry,
-    // setDiary,
-    // getDiary
 };
+
+export default functions
   
 function index() {
     return fetch(BASE_URL, {
@@ -83,14 +83,4 @@ function updateEntry(entry) {
         body: JSON.stringify(entry)
     };
     return fetch(`${ENTRY_URL}/${entry.id}`, options).then(res => res.json());  
-}
-
-//   export function setDiary(diary) {
-//       localStorage.setItem('diary', diary);
-//   }
-
-//   export function getDiary() {
-//       let diary = localStorage.getItem('diary');
-//       return diary;
-//   }
-  
+} 

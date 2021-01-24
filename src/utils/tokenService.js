@@ -1,3 +1,12 @@
+const functions = {
+  setToken,
+  getToken,
+  getUserFromToken,
+  removeToken
+};
+
+export default functions
+
 function setToken(token) {
     localStorage.setItem('token', token);
 }
@@ -24,11 +33,3 @@ function getUserFromToken () {
 function removeToken() {
   localStorage.removeItem('token');
 }
-
-// eslint-disable-next-line
-export default {
-  setToken,
-  getToken,
-  getUserFromToken,
-  removeToken
-};

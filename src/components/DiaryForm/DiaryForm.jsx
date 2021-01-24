@@ -180,7 +180,7 @@ class DiaryForm extends Component {
                         />
                         <hr/>
                         <div className="row form-group">
-                            <label for="comments">COMMENTS</label>
+                            <label htmlfor="comments">COMMENTS</label>
                             <textarea name='comments' className="form-control shadow-none" id="comments" value={this.state.comments} placeholder='How you feeling champ?' onChange={this.handleChange}/>
                         </div>
                         <button className="btn" onClick={this.addEntry} disabled={this.state.formInvalid}>ADD ENTRY</button>&nbsp;&nbsp;
