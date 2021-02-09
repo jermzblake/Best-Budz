@@ -35,6 +35,7 @@ handleSignupOrLogin = () => {
 }
 
 loadDiaries = async() => {
+  if(!this.state.user) return
   const diary = await diaryService.index();
   this.setState({ diary });
 }
@@ -46,7 +47,8 @@ updateDiary = (diary) => {
   /*--- Lifecycle Methods ---*/
 
 async componentDidMount() {
-    return this.loadDiaries();
+  return this.loadDiaries();
+
 }
 
 componentDidUpdate () {
