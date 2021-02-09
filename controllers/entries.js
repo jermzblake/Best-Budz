@@ -20,7 +20,6 @@ async function create (req, res) {
 }
 
 async function deleteOne (req, res) {
-    console.log(req.params.id)
     let  diary = await Diary.findOne({'entries._id': req.params.id});
     diary.entries.id(req.params.id).remove();
     diary.save(function(err){

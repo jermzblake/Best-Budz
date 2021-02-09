@@ -51,7 +51,6 @@ function createEntry(entry) {
 }
 
 function deleteEntry(entry) {
-      console.log(entry._id)
     const options = {
         method: 'DELETE',
         headers: {
