@@ -95,7 +95,6 @@ componentDidUpdate () {
             <LoginPage
               history={history}
               handleSignupOrLogin={this.handleSignupOrLogin}
-
             />
           }/>
           <Route exact path='/entry-form' render={({history}) => (
@@ -108,7 +107,6 @@ componentDidUpdate () {
             <UpdatePage 
             {...props}
             user={this.state.user}
-            diary={this.state.diary} 
             updateDiary={this.updateDiary}
             />
           }/>

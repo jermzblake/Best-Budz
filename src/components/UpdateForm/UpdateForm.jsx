@@ -24,7 +24,6 @@ class UpdateForm extends Component {
     }
 
     findEntryState = async() => {
-        // console.log(this.props.match.params.id)
         diaryService.getEntry(this.props.match.params.id)
         .then(entry => {
             this.setState({
