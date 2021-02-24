@@ -10,7 +10,7 @@ This app is a cannabis consumption diary. There are a lot of cannabis strains an
 - React
 - Node
 - Bootstrap
-- MD Bootstrap
+- Material Design for Bootstrap (React version)
 
 ### Gettting Started
 [Link to Best Budz](https://best-budz.herokuapp.com/)
