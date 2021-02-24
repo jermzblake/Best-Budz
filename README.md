@@ -9,6 +9,8 @@ This app is a cannabis consumption diary. There are a lot of cannabis strains an
 - Express
 - React
 - Node
+- Bootstrap
+- MD Bootstrap
 
 ### Gettting Started
 [Link to Best Budz](https://best-budz.herokuapp.com/)
