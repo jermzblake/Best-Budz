@@ -18,7 +18,7 @@ class DiaryForm extends Component {
             ...negativeInitialState(),
             ...flavourInitialState(),
             method: 'Dried Flower',
-            rating: "★★★☆☆",
+            rating: "☆☆☆☆☆",
             onsetTime: 'Immediate',
             strain: '',
             comments: '',

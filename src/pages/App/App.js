@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 //import React Routes
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 // import Pages
 import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
@@ -75,13 +75,16 @@ componentDidUpdate () {
               user={this.state.user}
             />
           }/>
-          <Route exact path='/dank-diary' render={props => 
+          <Route exact path='/dank-diary' render={props =>
+            this.state.user ? 
             <DiaryPage
               {...props}
               user={this.state.user}
               diary={this.state.diary}
               updateDiary={this.updateDiary}
             />
+            :
+            <Redirect to ='/login' />
           }/>
           <Route exact path='/signup' render={({ history }) =>
             <SignupPage
@@ -98,17 +101,23 @@ componentDidUpdate () {
             />
           }/>
           <Route exact path='/entry-form' render={({history}) => (
+            this.state.user ?
             <EntryFormPage 
             history={history} 
             updateDiary={this.updateDiary}
             />
+            :
+            <Redirect to ='/login' />
           )}/>
           <Route exact path='/edit/:id' render={props => 
+            this.state.user ?
             <UpdatePage 
             {...props}
             user={this.state.user}
             updateDiary={this.updateDiary}
             />
+            :
+            <Redirect to ='/login' />
           }/>
         </Switch>
       </div>

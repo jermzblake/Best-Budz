@@ -15,7 +15,7 @@ class UpdateForm extends Component {
             negativeEffects: '',
             flavours: '',
             method: 'Dried Flower',
-            rating: "★★★☆☆",
+            rating: '',
             onsetTime: 'Immediate',
             strain: '',
             comments: '',
