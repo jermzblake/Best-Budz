@@ -13,7 +13,7 @@ This app is a cannabis consumption diary. There are a lot of cannabis strains an
 - Material Design for Bootstrap (React version)
 
 ### Gettting Started
-[Link to Best Budz](https://best-budz.herokuapp.com/)
+[Link to Best Budz](https://best-budz.onrender.com/)
 Signup or login. Then venture over to your diary page (Dank Diary). If it's your first time, there will be no entries so add an entry using the link in the navbar or on the diary page. Fill out the form and voila. You can view a list of your entries on the Dank Diary. Also, you can see a more detailed view if you click on an entry.
 
 ### Next Steps/Icebox Items:
